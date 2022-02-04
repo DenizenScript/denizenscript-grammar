@@ -1,1 +1,1 @@
-# denizen-grammar
+# denizenscript-grammar
