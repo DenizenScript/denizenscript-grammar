@@ -37,8 +37,8 @@ repository:
             #             name: 'operator.colon.denizenscript'
             # }
             {
-                begin: '(?<!-\\s)([A-Za-z0-9_]+)'
-                end: ':'
+                begin: '(?<!-\s)([A-Za-z0-9_]+)(?=:)'
+                end: '(?=:)+.'
                 name: 'entity.name.tag.denizenscript'
             }
         ]
