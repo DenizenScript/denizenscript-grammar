@@ -16,52 +16,55 @@ patterns: [
     {
         include: '#strings'
     }
+    {
+        include: '#tags'
+    }
 ]
 repository:
     comments:
         patterns: [
             {
-                begin: '(#)'
-                end: '\\n'
+                begin: '^\\s*#.*$'
                 name: 'comment.normal.denizenscript'
             }
         ]
     keys:
         patterns: [
             {
-                begin: '(?<!-\s)([A-Za-z0-9_]+)(?=:)'
+                begin: '^[^-#\\n]*:'
                 name: 'entity.name.tag.denizenscript'
             }
         ]
     commands:
         patterns: [
             {
-                # matches denizen commands
-                begin: '(?<=-\\s)[a-zA-Z]+'
+                begin: '^\\s*-\\s[^\\s]+\\s'
                 name: 'keyword.control.denizenscript'
             }
         ]
     strings:
         patterns: [
             {
+                # Double Quote
                 begin: '(".*?")'
                 name: 'string.quoted.double.denizenscript'
             }
             {
+                # Single Quote
                 begin: '(\'.*?\')'
                 name: 'string.quoted.single.denizenscript'
             }
         ]
-    # tags:
-    #     patterns: [
-    #         {
-    #             begin: '((?<=<(\\[)).+(?=(\\])>))'
-    #             captures:
-    #                 1:
-    #                     name: 'keyword.tag.param-bracket.denizenscript'
-    #                 2:
-    #                     name: 'operator.tag.param-bracket.denizenscript'
-    #                 3:
-    #                     name: 'operator.tag.param-bracket.denizenscript'
-    #         }
-    #     ]
+    tags:
+        patterns: [
+            {
+                # Entire Tag
+                begin: '<[^-\\s]+>'
+                name: 'keyword.other.tag.denizenscript'
+            }
+            {
+                # Brackets inside of the tag
+                begin: '\\[[^\\[\\]]+\\]'
+                name: 'keyword.name.type.denizenscript'
+            }
+        ]
