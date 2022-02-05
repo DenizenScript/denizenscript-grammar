@@ -63,11 +63,11 @@ repository:
     strings:
         patterns: [
             {
-                begin: '(".+")'
+                begin: '(".*?")'
                 name: 'string.quoted.double.denizenscript'
             }
             {
-                begin: '(\'.+\')'
+                begin: '(\'.*?\')'
                 name: 'string.quoted.single.denizenscript'
             }
         ]
