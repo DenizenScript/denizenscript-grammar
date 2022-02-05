@@ -29,7 +29,7 @@ repository:
     keys:
         patterns: [
             {
-                begin: '(\\s|^)(?<!-\\s)[A-Za-z0-9_]+(:)'
+                begin: '(\\s|^)(?<!-\\s)([A-Za-z0-9_]+)(:)'
                 captures:
                     2:
                         name: 'operator.colon.denizenscript'
