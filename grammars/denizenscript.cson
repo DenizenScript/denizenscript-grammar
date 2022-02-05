@@ -32,9 +32,9 @@ repository:
                 begin: '(\\s|^)(?<!-\\s)([A-Za-z0-9_]+)(:)'
                 captures:
                     2:
-                        name: 'operator.colon.denizenscript'
-                    3:
                         name: 'entity.name.tag.denizenscript'
+                    3:
+                        name: 'operator.colon.denizenscript'
             }
         ]
     commands:
