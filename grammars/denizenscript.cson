@@ -1,0 +1,86 @@
+scopeName: 'source.denizenscript'
+name: 'DenizenScript'
+fileTypes: [
+    'dsc'
+]
+patterns: [
+    {
+        include: '#comments'
+    }
+    {
+        include: '#keys'
+    }
+    {
+        include: '#commands'
+    }
+    {
+        include: '#strings'
+    }
+]
+repository:
+    comments:
+        patterns: [
+            {
+                begin: '(#)'
+                end: '\\n'
+                name: 'comment.normal.denizenscript'
+            }
+            {
+                begin: '(#(?:\\||\\+|=|#|_|@|\/|todo|TODO))'
+                end: '\\n'
+                name: 'comment.header.denizenscript'
+            }
+            {
+                begin: '(#(?:todo|TODO))'
+                end: '\\n'
+                name: 'comment.todo.denizenscript'
+            }
+            {
+                begin: '(#-)'
+                end: '\\n'
+                name: 'comment.code.denizenscript'
+            }
+        ]
+    keys:
+        patterns: [
+            {
+                begin: '(\\s|^)(?<!-\\s)[A-Za-z0-9_]+(:)'
+                captures:
+                    2:
+                        name: 'entity.name.tag.denizenscript'
+                    3:
+                        name: 'operator.colon.denizenscript'
+            }
+        ]
+    commands:
+        patterns: [
+            {
+                # matches denizen commands
+                begin: '(?<=-\\s)[a-zA-Z]+'
+                name: 'keyword.control.denizenscript'
+            }
+        ]
+    strings:
+        patterns: [
+            {
+                begin: '(".+")'
+                name: 'string.quoted.double.denizenscript'
+            }
+            {
+                begin: '(\'.+\')'
+                name: 'string.quoted.single.denizenscript'
+            }
+        ]
+    # tags:
+    #     patterns: [
+    #         {
+    #             begin: '((?<=<(\\[)).+(?=(\\])>))'
+    #             captures:
+    #                 1:
+    #                     name: 'keyword.tag.param-bracket.denizenscript'
+    #                 2:
+    #                     name: 'operator.tag.param-bracket.denizenscript'
+    #                 3:
+    #                     name: 'operator.tag.param-bracket.denizenscript'
+    #         }
+    #     ]
