@@ -28,13 +28,18 @@ repository:
         ]
     keys:
         patterns: [
+            # {
+            #     begin: '(?<!-\\s)([A-Za-z0-9_]+)(:)'
+            #     captures:
+            #         1:
+            #             name: 'entity.name.tag.denizenscript'
+            #         2:
+            #             name: 'operator.colon.denizenscript'
+            # }
             {
-                begin: '(?<!-\\s)([A-Za-z0-9_]+)(:)'
-                captures:
-                    1:
-                        name: 'entity.name.tag.denizenscript'
-                    2:
-                        name: 'operator.colon.denizenscript'
+                begin: '(?<!-\\s)([A-Za-z0-9_]+)'
+                end: ':'
+                name: 'entity.name.tag.denizenscript'
             }
         ]
     commands:
