@@ -25,6 +25,7 @@ repository:
         patterns: [
             {
                 begin: '^\\s*#.*$'
+                end: '\\n'
                 name: 'comment.normal.denizenscript'
             }
         ]
@@ -32,39 +33,93 @@ repository:
         patterns: [
             {
                 begin: '^[^-#\\n]*:'
+                end: '\\s'
                 name: 'entity.name.tag.denizenscript'
             }
         ]
     commands:
         patterns: [
             {
-                begin: '^\\s*-\\s[^\\s]+\\s'
-                name: 'keyword.control.denizenscript'
+                begin: '(-)\\s([^\\s]+)'
+                captures:
+                    1:
+                      name: 'operator.dash.denizenscript'
+                    2:
+                      name: 'keyword.command.denizenscript'
+                end: '\\s'
             }
         ]
     strings:
         patterns: [
             {
                 # Double Quote
-                begin: '(".*?")'
+                begin: '".*?'
+                end: '\\n|"'
                 name: 'string.quoted.double.denizenscript'
             }
             {
                 # Single Quote
-                begin: '(\'.*?\')'
+                begin: '\''
+                end: '\\n|\''
                 name: 'string.quoted.single.denizenscript'
+                # \W'\w
             }
         ]
     tags:
         patterns: [
+          # {
+          #   # Tag
+          #   begin: '(\\[.*?)'
+          #   end: '(?<=\\])'
+          #
+          #   # (<|<\[|(.*(\[.+\])|.+)(>|.+>))
+          #
+          #   # (\[.*?(?<=\]))
+          #   # (<)|(\[.*?(?<=\]))|(>)
+          #   # WIP: (<)|(\[.*?(?<=\]))|.(?<=\>)|(\>)
+          # }
+          {
+              # Tag
+              begin: '<[^-\\s]'
+              end: '.+>\\s|.+>'
+              name: 'constant.language.tag.denizenscript'
+          }
             {
-                # Entire Tag
-                begin: '<[^-\\s]+>'
-                name: 'keyword.other.tag.denizenscript'
+              # Advanced Tag
+              begin: '(<[^-:])(.+)(\\[)'
+              end: '(\\])(>|.+>)'
+              beginCaptures:
+                1:
+                  name: 'constant.language.advanced-tag.denizenscript'
+                2:
+                  name: 'constant.language.advanced-tag.denizenscript'
+                3:
+                  name: 'keyword.operator.denizenscript'
+              endCaptures:
+                1:
+                  name: 'keyword.operator.denizenscript'
+                2:
+                  name: 'constant.language.advanced-tag.denizenscript'
             }
             {
-                # Brackets inside of the tag
-                begin: '\\[[^\\[\\]]+\\]'
-                name: 'keyword.name.type.denizenscript'
+              # Definition
+              begin: '(<)(\\[)'
+              end: '(\\])(>)'
+              beginCaptures:
+                1:
+                  name: 'constant.language.tag.denizenscript'
+                2:
+                  name: 'keyword.operator.denizenscript'
+              endCaptures:
+                1:
+                  name: 'keyword.operator.denizenscript'
+                2:
+                  name: 'constant.language.tag.denizenscript'
+            }
+            {
+                # Normal tag
+                begin: '<[^-\\s]'
+                end: '.+>\\s|.+>'
+                name: 'constant.language.tag.denizenscript'
             }
         ]
