@@ -17,6 +17,9 @@ patterns: [
         include: '#double_quotes'
     }
     {
+        include: '#single_quotes'
+    }
+    {
         include: '#tags'
     }
 ]
