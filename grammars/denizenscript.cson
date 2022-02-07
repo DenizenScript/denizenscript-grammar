@@ -67,53 +67,10 @@ repository:
         ]
     tags:
         patterns: [
-          # {
-          #   # Tag
-          #   begin: '(\\[.*?)'
-          #   end: '(?<=\\])'
-          #
-          #   # (<|<\[|(.*(\[.+\])|.+)(>|.+>))
-          #
-          #   # (\[.*?(?<=\]))
-          #   # (<)|(\[.*?(?<=\]))|(>)
-          #   # WIP: (<)|(\[.*?(?<=\]))|.(?<=\>)|(\>)
-          # }
           {
               # Tag
               begin: '<[^-\\s]'
               end: '.+>\\s|.+>'
               name: 'constant.language.tag.denizenscript'
           }
-            {
-              # Advanced Tag
-              begin: '(<[^-:])(.+)(\\[)'
-              end: '(\\])(>|.+>)'
-              beginCaptures:
-                1:
-                  name: 'constant.language.advanced-tag.denizenscript'
-                2:
-                  name: 'constant.language.advanced-tag.denizenscript'
-                3:
-                  name: 'keyword.operator.denizenscript'
-              endCaptures:
-                1:
-                  name: 'keyword.operator.denizenscript'
-                2:
-                  name: 'constant.language.advanced-tag.denizenscript'
-            }
-            {
-              # Definition
-              begin: '(<)(\\[)'
-              end: '(\\])(>)'
-              beginCaptures:
-                1:
-                  name: 'constant.language.tag.denizenscript'
-                2:
-                  name: 'keyword.operator.denizenscript'
-              endCaptures:
-                1:
-                  name: 'keyword.operator.denizenscript'
-                2:
-                  name: 'constant.language.tag.denizenscript'
-            }
-          ]
+        ]
