@@ -14,7 +14,7 @@ patterns: [
         include: '#commands'
     }
     {
-        include: '#quotes'
+        include: '#double_quotes'
     }
     {
         include: '#tags'
@@ -32,9 +32,13 @@ repository:
     keys:
         patterns: [
             {
-                begin: '^[^-#\\n]*:'
+                begin: '(^[^-#\\n]*)(:)'
                 end: '\\s'
-                name: 'entity.name.tag.denizenscript'
+                beginCaptures:
+                  1:
+                    name: 'entity.name.tag.denizenscript'
+                  2:
+                    name: 'operator.colon.denizenscript'
             }
         ]
     commands:
@@ -49,21 +53,25 @@ repository:
                 end: '\\s'
             }
         ]
-    quotes:
+    double_quotes:
+        # Double Quote
+        begin: '"'
+        end: '\\n|"'
+        name: 'string.quoted.double.denizenscript'
         patterns: [
             {
-                # Double Quote
-                begin: '".*?'
-                end: '\\n|"'
-                name: 'string.quoted.double.denizenscript'
+                include: '#tags'
             }
-            {
-                # Single Quote
-                begin: '\''
-                end: '\\n|\''
-                name: 'string.quoted.single.denizenscript'
-                # \W'\w
-            }
+        ]
+    single_quotes:
+        # Single Quote
+        begin: '\''
+        end: '\\n|\''
+        name: 'string.quoted.single.denizenscript'
+        patterns: [
+          {
+            include: '#tags'
+          }
         ]
     tags:
         patterns: [
