@@ -4,6 +4,8 @@ A TextMate grammar file for the [DenizenScript](https://one.denizenscript.com) s
 
 ###### 💫💫💫
 
+You can test out the grammar file [here!](https://github-lightshow.herokuapp.com/?utf8=%E2%9C%93&scope=from-url&grammar_format=auto&grammar_url=https%3A%2F%2Fgithub.com%2FBreadcrumbIsTaken%2Fdenizenscript-grammar%2Fblob%2Fmain%2Fgrammars%2Fdenizenscript.cson&grammar_text=&code_source=from-url&code_url=https%3A%2F%2Fgithub.com%2FBreadcrumbIsTaken%2FBreadVibesMC%2Fblob%2Fmain%2FFactions%2520-%252025567%2Fplugins%2FDenizen%2Fscripts%2FFactions%2520Core.dsc&code=)
+
 #### License
 <details>
     <summary>MIT License</summary>

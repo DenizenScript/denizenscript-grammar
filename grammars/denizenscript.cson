@@ -25,9 +25,6 @@ patterns: [
     {
         include: '#tag_brackets'
     }
-    {
-        include: '#tag_definitions'
-    }
 ]
 repository:
     comments:
@@ -63,7 +60,6 @@ repository:
             }
         ]
     double_quotes:
-        # Double Quote
         begin: '"'
         end: '\\n|"'
         name: 'string.quoted.double.denizenscript'
@@ -76,7 +72,6 @@ repository:
             }
         ]
     single_quotes:
-        # Single Quote
         begin: '\''
         end: '\\n|\''
         name: 'string.quoted.single.denizenscript'
@@ -89,16 +84,12 @@ repository:
             }
         ]
     tags:
-        # Tag
-        begin: '<[^-\\s:\\[]'
+        begin: '<'
         end: '>'
         name: 'constant.language.tag.denizenscript'
         patterns: [
             {
                 include: '#tag_brackets'
-            }
-            {
-                include: '#tag_definitions'
             }
         ]
     tag_brackets:
@@ -108,29 +99,5 @@ repository:
         patterns: [
             {
                 include: '#tags'
-            }
-            {
-                include: '#tag_definitions'
-            }
-        ]
-    tag_definitions:
-        begin: '(<)(\\[)'
-        end: '(\\])(.*?>)'
-        beginCaptures:
-            1:
-                name: 'constant.language.tag.denizenscript'
-            2:
-                name: 'keyword.tag-definitions.denizenscript'
-        endCaptures:
-            1:
-                name: 'keyword.tag-definitions.denizenscript'
-            2:
-                name: 'constant.language.tag.denizenscript'
-        patterns: [
-            {
-                include: '#tags'
-            }
-            {
-                include: '#tag_brackets'
             }
         ]
