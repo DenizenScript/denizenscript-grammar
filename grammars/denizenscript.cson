@@ -84,7 +84,7 @@ repository:
             }
         ]
     tags:
-        begin: '<'
+        begin: '<(?!-|\\s)'
         end: '>'
         name: 'constant.language.tag.denizenscript'
         patterns: [
