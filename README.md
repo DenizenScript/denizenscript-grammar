@@ -1,8 +1,8 @@
 # denizenscript-grammar
 
-Grammar File for the [DenizenScript](https://one.denizenscript.com) scripting language!
+A TextMate grammar file for the [DenizenScript](https://one.denizenscript.com) scripting language!
 
-
+###### 💫💫💫
 
 #### License
 <details>
