@@ -42,7 +42,7 @@ repository:
                 end: '\\s'
                 beginCaptures:
                   1:
-                    name: 'entity.name.tag.denizenscript'
+                    name: 'markup.heading.key.denizenscript'
                   2:
                     name: 'operator.colon.denizenscript'
             }
@@ -50,12 +50,12 @@ repository:
     commands:
         patterns: [
             {
-                begin: '(-)\\s([^\\s]+)'
+                begin: '(-)\\s([^\\s\\[]+)'
                 captures:
                     1:
                       name: 'operator.dash.denizenscript'
                     2:
-                      name: 'keyword.command.denizenscript'
+                      name: 'entity.other.command.denizenscript'
                 end: '\\s'
             }
         ]
@@ -93,9 +93,9 @@ repository:
             }
         ]
     tag_brackets:
-        begin: '\\['
+        begin: '(?<=\\w|<)\\['
         end: '\\]'
-        name: 'keyword.tag-brackets.denizenscript'
+        name: 'entity.name.tag.tag-brackets.denizenscript'
         patterns: [
             {
                 include: '#tags'
