@@ -23,7 +23,7 @@ patterns: [
         include: '#tags'
     }
     {
-        include: '#tag_brackets'
+        include: '#tag_params'
     }
 ]
 repository:
@@ -68,7 +68,7 @@ repository:
                 include: '#tags'
             }
             {
-                include: '#tag_brackets'
+                include: '#tag_params'
             }
         ]
     single_quotes:
@@ -80,7 +80,7 @@ repository:
                 include: '#tags'
             }
             {
-                include: '#tag_brackets'
+                include: '#tag_params'
             }
         ]
     tags:
@@ -89,10 +89,10 @@ repository:
         name: 'constant.language.tag.denizenscript'
         patterns: [
             {
-                include: '#tag_brackets'
+                include: '#tag_params'
             }
         ]
-    tag_brackets:
+    tag_params:
         begin: '(?<=\\w|<)\\['
         end: '\\]'
         name: 'entity.name.tag.tag-brackets.denizenscript'
