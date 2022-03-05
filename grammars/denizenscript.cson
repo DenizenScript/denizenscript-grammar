@@ -28,37 +28,33 @@ patterns: [
 ]
 repository:
     comments:
-        patterns: [
-            {
-                begin: '^\\s*#.*$'
-                end: '\\n'
-                name: 'comment.normal.denizenscript'
-            }
-        ]
+        begin: '(^\\s*#.+[TODO].*)|(^\\s*#.*[\\@\\\+=#_\\/|].*)|(^\\s*#.*[-].*)|(^\\s*#.*)'
+        end: '\\n'
+        beginCaptures:
+            1:
+                name: 'variable.parameter.todo-comment.denizenscript'
+            2:
+                name: 'keyword.header-comment.denizenscript'
+            3:
+                name: 'comment.line.number-sign.denizenscript'
+            4:
+                name: 'comment.line.number-sign.denizenscript'
     keys:
-        patterns: [
-            {
-                begin: '(^[^-#\\n]*)(:)'
-                end: '\\s'
-                beginCaptures:
-                  1:
-                    name: 'markup.heading.key.denizenscript'
-                  2:
-                    name: 'operator.colon.denizenscript'
-            }
-        ]
+        begin: '(^[^-#\\n]*)(:)'
+        end: '\\s'
+        beginCaptures:
+            1:
+                name: 'markup.heading.key.denizenscript'
+            2:
+                name: 'operator.colon.denizenscript'
     commands:
-        patterns: [
-            {
-                begin: '(-)\\s([^\\s\\[]+)'
-                captures:
-                    1:
-                      name: 'operator.dash.denizenscript'
-                    2:
-                      name: 'entity.other.command.denizenscript'
-                end: '\\s'
-            }
-        ]
+        begin: '(-)\\s([^\\s\\[]+)'
+        captures:
+            1:
+                name: 'operator.dash.denizenscript'
+            2:
+                name: 'entity.other.command.denizenscript'
+        end: '\\s'
     double_quotes:
         begin: '"'
         end: '\\n|"'
