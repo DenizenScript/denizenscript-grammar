@@ -8,6 +8,12 @@ patterns: [
         include: '#comments'
     }
     {
+        include: '#todo_comments'
+    }
+    {
+        include: '#header_comments'
+    }
+    {
         include: '#keys'
     }
     {
@@ -28,17 +34,17 @@ patterns: [
 ]
 repository:
     comments:
-        begin: '(^\\s*#.+[TODO].*)|(^\\s*#.*[\\@\\\+=#_\\/|].*)|(^\\s*#.*[-].*)|(^\\s*#.*)'
+        begin: '^\\s*#(?!\\s*todo|\\s*TODO|(?:\\s*(?:\\||\\+|=|#|_|@|\\/)))'
         end: '\\n'
-        beginCaptures:
-            1:
-                name: 'variable.parameter.todo-comment.denizenscript'
-            2:
-                name: 'keyword.header-comment.denizenscript'
-            3:
-                name: 'comment.line.number-sign.denizenscript'
-            4:
-                name: 'comment.line.number-sign.denizenscript'
+        name: 'comment.line.number-sign.denizenscript'
+    todo_comments:
+        begin: '^\\s*#\\s*(?:TODO|todo)'
+        end: '\\n'
+        name: 'variable.todo-comment.denizenscript'
+    header_comments:
+        begin: '^\\s*#\\s*(?:\\||\\+|=|#|_|@|\\/)'
+        end: '\\n'
+        name: 'keyword.header-comment.denizenscript'
     keys:
         begin: '(^[^-#\\n]*)(:)'
         end: '\\s'
