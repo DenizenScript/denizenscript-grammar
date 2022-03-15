@@ -8,6 +8,12 @@ patterns: [
         include: '#comments'
     }
     {
+        include: '#todo_comments'
+    }
+    {
+        include: '#header_comments'
+    }
+    {
         include: '#keys'
     }
     {
@@ -23,42 +29,38 @@ patterns: [
         include: '#tags'
     }
     {
-        include: '#tag_brackets'
+        include: '#tag_params'
     }
 ]
 repository:
     comments:
-        patterns: [
-            {
-                begin: '^\\s*#.*$'
-                end: '\\n'
-                name: 'comment.normal.denizenscript'
-            }
-        ]
+        begin: '^\\s*#(?!\\s*todo|\\s*TODO|(?:\\s*(?:\\||\\+|=|#|_|@|\\/)))'
+        end: '\\n'
+        name: 'comment.line.number-sign.denizenscript'
+    todo_comments:
+        begin: '^\\s*#\\s*(?:TODO|todo)'
+        end: '\\n'
+        name: 'variable.todo-comment.denizenscript'
+    header_comments:
+        begin: '^\\s*#\\s*(?:\\||\\+|=|#|_|@|\\/)'
+        end: '\\n'
+        name: 'keyword.header-comment.denizenscript'
     keys:
-        patterns: [
-            {
-                begin: '(^[^-#\\n]*)(:)'
-                end: '\\s'
-                beginCaptures:
-                  1:
-                    name: 'entity.name.tag.denizenscript'
-                  2:
-                    name: 'operator.colon.denizenscript'
-            }
-        ]
+        begin: '(^[^-#\\n]*)(:)'
+        end: '\\s'
+        beginCaptures:
+            1:
+                name: 'markup.heading.key.denizenscript'
+            2:
+                name: 'operator.colon.denizenscript'
     commands:
-        patterns: [
-            {
-                begin: '(-)\\s([^\\s]+)'
-                captures:
-                    1:
-                      name: 'operator.dash.denizenscript'
-                    2:
-                      name: 'keyword.command.denizenscript'
-                end: '\\s'
-            }
-        ]
+        begin: '(-)\\s([^\\s\\[]+)'
+        captures:
+            1:
+                name: 'operator.dash.denizenscript'
+            2:
+                name: 'entity.other.command.denizenscript'
+        end: '\\s'
     double_quotes:
         begin: '"'
         end: '\\n|"'
@@ -68,7 +70,7 @@ repository:
                 include: '#tags'
             }
             {
-                include: '#tag_brackets'
+                include: '#tag_params'
             }
         ]
     single_quotes:
@@ -80,7 +82,7 @@ repository:
                 include: '#tags'
             }
             {
-                include: '#tag_brackets'
+                include: '#tag_params'
             }
         ]
     tags:
@@ -89,13 +91,13 @@ repository:
         name: 'constant.language.tag.denizenscript'
         patterns: [
             {
-                include: '#tag_brackets'
+                include: '#tag_params'
             }
         ]
-    tag_brackets:
-        begin: '\\['
+    tag_params:
+        begin: '(?<=\\w|<)\\['
         end: '\\]'
-        name: 'keyword.tag-brackets.denizenscript'
+        name: 'entity.name.tag.tag-brackets.denizenscript'
         patterns: [
             {
                 include: '#tags'
