@@ -46,7 +46,7 @@ repository:
         end: '\\n'
         name: 'keyword.header-comment.denizenscript'
     keys:
-        begin: '(^[^-#\\n]*)(:\\s)'
+        begin: '(^[^-#\\n]*):(?=\\s)'
         end: '\\s'
         beginCaptures:
             1:
