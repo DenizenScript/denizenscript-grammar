@@ -46,7 +46,7 @@ repository:
         end: '\\n'
         name: 'keyword.header-comment.denizenscript'
     keys:
-        begin: '(^[^-#\\n]*):(?=\\s)'
+        begin: '(^[^-#\\n]*)(?=(:)\\s)'
         end: '\\s'
         beginCaptures:
             1:
@@ -62,7 +62,8 @@ repository:
                 name: 'entity.other.command.denizenscript'
         end: '\\s'
     double_quotes:
-        begin: '(?<!\\w)".*"'
+        begin: '(?<=\\s)"'
+        end: '(?:"|\\R)'
         name: 'string.quoted.double.denizenscript'
         patterns: [
             {
@@ -73,7 +74,8 @@ repository:
             }
         ]
     single_quotes:
-        begin: '(?<!\\w)\'.*\''
+        begin: '(?<=\\s)\''
+        end: '(?:\'|\\R)'
         name: 'string.quoted.single.denizenscript'
         patterns: [
             {
