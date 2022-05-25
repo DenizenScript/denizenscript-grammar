@@ -63,7 +63,7 @@ repository:
         end: '\\s'
     double_quotes:
         begin: '(?<=\\s)"'
-        end: '(?:"|\\R)'
+        end: '(?:"|\\n)'
         name: 'string.quoted.double.denizenscript'
         patterns: [
             {
@@ -75,7 +75,7 @@ repository:
         ]
     single_quotes:
         begin: '(?<=\\s)\''
-        end: '(?:\'|\\R)'
+        end: '(?:\'|\\n)'
         name: 'string.quoted.single.denizenscript'
         patterns: [
             {
