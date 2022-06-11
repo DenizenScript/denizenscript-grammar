@@ -34,11 +34,11 @@ patterns: [
 ]
 repository:
     comments:
-        begin: '^\\s*#(?!\\s*todo|\\s*TODO|(?:\\s*(?:\\||\\+|=|#|_|@|\\/)))'
+        begin: '(?i)^\\s*#(?!\\s*todo|(?:\\s*(?:\\||\\+|=|#|_|@|\\/)))'
         end: '\\n'
         name: 'comment.line.number-sign.denizenscript'
     todo_comments:
-        begin: '^\\s*#\\s*(?:TODO|todo)'
+        begin: '(?i)^\\s*#\\s*(?:todo)'
         end: '\\n'
         name: 'variable.todo-comment.denizenscript'
     header_comments:
