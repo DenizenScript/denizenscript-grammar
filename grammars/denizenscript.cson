@@ -55,12 +55,12 @@ repository:
                 name: 'operator.colon.denizenscript'
     commands:
         begin: '(-)\\s([^\\s<>\\[\\]]+)'
+        end: '\\s'
         captures:
             1:
                 name: 'operator.dash.denizenscript'
             2:
                 name: 'entity.other.command.denizenscript'
-        end: '\\s'
     double_quotes:
         begin: '(?<=\\s)"'
         end: '(?:"|\\n)'
