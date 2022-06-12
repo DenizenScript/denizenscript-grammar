@@ -29,7 +29,7 @@ patterns: [
         include: '#tags'
     }
     {
-        include: '#tag_params'
+        include: '#def_brackets'
     }
 ]
 repository:
@@ -94,10 +94,10 @@ repository:
                 include: '#tag_params'
             }
         ]
-    tag_params:
+    def_brackets:
         begin: '(?<=\\w|<)\\['
         end: '\\]'
-        name: 'entity.name.tag.tag-brackets.denizenscript'
+        name: 'entity.name.def_brackets.denizenscript'
         patterns: [
             {
                 include: '#tags'
