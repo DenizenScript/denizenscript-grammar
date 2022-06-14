@@ -70,7 +70,7 @@ repository:
                 include: '#tags'
             }
             {
-                include: '#tag_params'
+                include: '#def_brackets'
             }
         ]
     single_quotes:
@@ -82,7 +82,7 @@ repository:
                 include: '#tags'
             }
             {
-                include: '#tag_params'
+                include: '#def_brackets'
             }
         ]
     tags:
@@ -91,13 +91,13 @@ repository:
         name: 'constant.language.tag.denizenscript'
         patterns: [
             {
-                include: '#tag_params'
+                include: '#def_brackets'
             }
         ]
     def_brackets:
         begin: '(?<=\\w|<)\\['
         end: '\\]'
-        name: 'entity.name.def_brackets.denizenscript'
+        name: 'entity.name.tag.def_brackets.denizenscript'
         patterns: [
             {
                 include: '#tags'
