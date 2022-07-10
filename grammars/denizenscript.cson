@@ -31,6 +31,9 @@ patterns: [
     {
         include: '#def_brackets'
     }
+    {
+        include: '#not_script_keys'
+    }
 ]
 repository:
     comments:
@@ -46,15 +49,40 @@ repository:
         end: '\\n'
         name: 'keyword.header-comment.denizenscript'
     keys:
-        begin: '(^(?!.*- |#|\\n).*)(?=(:)\\s)'
+        begin: '(^(?!.*- |#|\\n|.*(?:interact scripts|default constants|data|constants|text|lore|aliases|slots|enchantments|input)(?=(?::))).*)(?=(:)\\s)'
         end: '\\s'
         beginCaptures:
             1:
                 name: 'markup.heading.key.denizenscript'
             2:
                 name: 'operator.colon.denizenscript'
+    not_script_keys:
+        begin: '(^(?!.*- |#|\\n).*(?=interact scripts|default constants|data|constants|text|lore|aliases|slots|enchantments|input).*)(?=(:)\\s)'
+        end: '^(?!.*- |\\n|\\s*#)'
+        beginCaptures:
+            1:
+                name: 'markup.heading.key.denizenscript'
+            2:
+                name: 'operator.colon.denizenscript'
+        patterns: [
+            {
+                include: '#tags'
+            }
+            {
+                include: '#def_brackets'
+            }
+            {
+                include: '#comments'
+            }
+            {
+                include: '#todo_comments'
+            }
+            {
+                include: '#header_comments'
+            }
+        ]
     commands:
-        begin: '(-)\\s([^\\s<>\\[\\]"\']+)'
+        begin: '(-)\\s([^\\s<>"\']+)'
         end: '\\s'
         captures:
             1:
