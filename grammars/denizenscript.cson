@@ -37,18 +37,28 @@ patterns: [
 ]
 repository:
     comments:
+        # # look at me ima comment!!!
         begin: '(?i)^\\s*#(?!\\s*todo|(?:\\s*(?:\\||\\+|=|#|_|@|\\/)))'
         end: '\\n'
         name: 'comment.line.number-sign.denizenscript'
     todo_comments:
+        # #todo: make today great
+        # #TODO: LOUDER I SAY!
+        # #todo no need for colons :)
+        # #TODO I SAID, NO NEED FOR COLONS!!!! >:0
         begin: '(?i)^\\s*#\\s*(?:todo)'
         end: '\\n'
         name: 'variable.todo-comment.denizenscript'
     header_comments:
+        # #+ ------------------
+        # #| wooo flashy header
+        # #+ ------------------
         begin: '^\\s*#\\s*(?:\\||\\+|=|#|_|@|\\/)'
         end: '\\n'
         name: 'keyword.header-comment.denizenscript'
     keys:
+        # key:
+        # key: value
         begin: '(^(?!.*- |#|\\n|.*(?:interact scripts|default constants|data|constants|text|lore|aliases|slots|enchantments|input)(?=(?::))).*)(?=(:)\\s)'
         end: '\\s'
         beginCaptures:
@@ -57,6 +67,12 @@ repository:
             2:
                 name: 'operator.colon.denizenscript'
     not_script_keys:
+        # lore:
+        #   - This won't be colored like a command.
+        # slots:
+        #   - [] [] [] [these_wont_either] [] [] [] [] []
+
+        # Will not color the commands inside of them. Tags are still colored though. ;)
         begin: '(^(?!.*- |#|\\n).*(?=interact scripts|default constants|data|constants|text|lore|aliases|slots|enchantments|input).*)(?=(:)\\s)'
         end: '^(?!.*- |\\n|\\s*#)'
         beginCaptures:
@@ -82,6 +98,9 @@ repository:
             }
         ]
     commands:
+        # - narrate "Hello there! You look amazing today! <3"
+        # - flag <player> looking_amazing
+        # - define who_looks_amazing <player>
         begin: '(-)\\s([^\\s<>"\']+)'
         end: '\\s'
         captures:
@@ -90,6 +109,7 @@ repository:
             2:
                 name: 'entity.other.command.denizenscript'
     double_quotes:
+        # "Woah! Quotes are awesome!"
         begin: '(?<=\\s)"'
         end: '(?:"|\\n)'
         name: 'string.quoted.double.denizenscript'
@@ -102,6 +122,7 @@ repository:
             }
         ]
     single_quotes:
+        # 'Wow so fancy!!'
         begin: '(?<=\\s)\''
         end: '(?:\'|\\n)'
         name: 'string.quoted.single.denizenscript'
@@ -114,6 +135,8 @@ repository:
             }
         ]
     tags:
+        # <player>
+        # <util.random_uuid>
         begin: '<(?!-|\\s|=)'
         end: '>'
         name: 'constant.language.tag.denizenscript'
@@ -123,6 +146,8 @@ repository:
             }
         ]
     def_brackets:
+        # <player.has_flag[looking_amazing]>
+        # <[who_looks_amazing]>
         begin: '(?<=\\w|<)\\['
         end: '\\]'
         name: 'entity.name.tag.def_brackets.denizenscript'
