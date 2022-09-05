@@ -5,6 +5,8 @@ A TextMate grammar file for the [Denizen scripting language](https://denizenscri
 
 Built by [Breadcrumb](https://github.com/BreadcrumbIsTaken) for the DenizenScript team.
 
+This is linked automatically to GitHub itself by the [Linguist](https://github.com/github/linguist) project.
+
 ### Licensing pre-note:
 
 This is an open source project, provided entirely freely, for everyone to use and contribute to.
