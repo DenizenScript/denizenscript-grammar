@@ -59,7 +59,7 @@ repository:
     keys:
         # key:
         # key: value
-        begin: '(^(?!.*- |#|\\n|.*(?:interact scripts|default constants|data|constants|text|lore|aliases|slots|enchantments|input)(?=(?::))).*)(?=(:)\\s)'
+        begin: '(?i)(^(?!.*- |#|\\n|.*(?:interact scripts|default constants|data|constants|text|lore|aliases|slots|enchantments|input)(?=(?::))).*)(?=(:)\\s)'
         end: '\\s'
         beginCaptures:
             1:
@@ -73,7 +73,7 @@ repository:
         #   - [] [] [] [these_wont_either] [] [] [] [] []
 
         # Will not color the commands inside of them. Tags are still colored though. ;)
-        begin: '(^(?!.*- |#|\\n).*(?=interact scripts|default constants|data|constants|text|lore|aliases|slots|enchantments|input).*)(?=(:)\\s)'
+        begin: '(?i)(^(?!.*- |#|\\n).*(?=interact scripts|default constants|data|constants|text|lore|aliases|slots|enchantments|input).*)(?=(:)\\s)'
         end: '^(?!.*- |\\n|\\s*#)'
         beginCaptures:
             1:
