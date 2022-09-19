@@ -101,7 +101,7 @@ repository:
         # - narrate "Hello there! You look amazing today! <3"
         # - flag <player> looking_amazing
         # - define who_looks_amazing <player>
-        begin: '(-)\\s([^\\s<>"\']+)'
+        begin: '^\\s.*(-)\\s([^\\s<>"\']+)'
         end: '\\s'
         captures:
             1:
