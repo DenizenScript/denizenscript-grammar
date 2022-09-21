@@ -59,7 +59,7 @@ repository:
     keys:
         # key:
         # key: value
-        begin: '(?i)(^(?!^\\s*-|#|\\n|.*(?:interact scripts|default constants|data|constants|text|lore|aliases|slots|enchantments|input)(?=(?::))).*?)(?=(:)\\s)'
+        begin: '(?i)(^(?!^\\s*-|#|\n|^\\s*(?:interact scripts|default constants|data|constants|text|lore|aliases|slots|enchantments|input)(?=(?::))).*?)(?=(:)\\s)'
         end: '\\s'
         beginCaptures:
             1:
