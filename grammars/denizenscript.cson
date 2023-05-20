@@ -144,11 +144,14 @@ repository:
             {
                 include: '#def_brackets'
             }
+            {
+                include: "#tags"
+            }
         ]
     def_brackets:
         # <player.has_flag[looking_amazing]>
         # <[who_looks_amazing]>
-        begin: '(?<=\\w|<)\\['
+        begin: '(?<=\\w|<|&)\\['
         end: '\\]'
         name: 'entity.name.tag.def_brackets.denizenscript'
         patterns: [
