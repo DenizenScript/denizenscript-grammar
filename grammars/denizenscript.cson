@@ -158,4 +158,7 @@ repository:
             {
                 include: '#tags'
             }
+            {
+                include: '#def_brackets'
+            }
         ]
