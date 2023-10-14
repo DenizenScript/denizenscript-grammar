@@ -111,7 +111,7 @@ repository:
     double_quotes:
         # "Woah! Quotes are awesome!"
         begin: '(?<=\\s)"'
-        end: '(?:"|\\n)'
+        end: '(?:")'
         name: 'string.quoted.double.denizenscript'
         patterns: [
             {
@@ -124,7 +124,7 @@ repository:
     single_quotes:
         # 'Wow so fancy!!'
         begin: '(?<=\\s)\''
-        end: '(?:\'|\\n)'
+        end: '(?:\')'
         name: 'string.quoted.single.denizenscript'
         patterns: [
             {
@@ -142,10 +142,10 @@ repository:
         name: 'constant.language.tag.denizenscript'
         patterns: [
             {
-                include: '#def_brackets'
+                include: "#tags"
             }
             {
-                include: "#tags"
+                include: '#def_brackets'
             }
         ]
     def_brackets:
